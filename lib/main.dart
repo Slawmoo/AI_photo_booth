@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
+import 'package:path_provider/path_provider.dart';
+import 'dart:io';
 
 void main() => runApp(CameraApp());
 
@@ -71,8 +73,20 @@ class _CameraScreenState extends State<CameraScreen> {
         onPressed: () async {
           try {
             await _initializeControllerFuture;
-            final image = await _controller.takePicture();
-            // Do something with the captured image
+            final XFile? image = await _controller.takePicture();
+            if (image != null) {
+              final directory = await getExternalStorageDirectory();
+              final imagePath = '${directory!.path}/image_${DateTime.now()}.png';
+              final File savedImage = File(imagePath);
+              await savedImage.writeAsBytes(await image.readAsBytes());
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text('Image saved to $imagePath'),
+                ),
+              );
+            } else {
+              print('Error: Captured image is null');
+            }
           } catch (e) {
             print('Error: $e');
           }
