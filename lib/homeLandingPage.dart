@@ -17,18 +17,18 @@ class AIPhotoBoothHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            colors: [Colors.pink, Colors.purple],
+            colors: [Color.fromARGB(255, 237, 17, 17),Color.fromARGB(255, 207, 101, 101), Color.fromARGB(255, 86, 9, 100)],
           ),
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            Text(
+            const Text(
               'AI Photo Booth',
               textAlign: TextAlign.center,
               style: TextStyle(
@@ -37,10 +37,15 @@ class AIPhotoBoothHomePage extends StatelessWidget {
                 color: Colors.white,
               ),
             ),
-            SizedBox(height: 20),
-            ActionButton(title: 'CONNECT WITH MOBILE PHONE'),
+            SizedBox(height: 60),
+            Center(
+              child: SizedBox(
+                width: 450,
+                child: ActionButton(title: 'CONNECT WITH MOBILE PHONE'),
+              ),
+            ),
             SizedBox(height: 10),
-            Text(
+            const Text(
               'PHONE CONNECTED',
               textAlign: TextAlign.center,
               style: TextStyle(
@@ -48,8 +53,8 @@ class AIPhotoBoothHomePage extends StatelessWidget {
                 color: Colors.white,
               ),
             ),
-            SizedBox(height: 20),
-            Text(
+            SizedBox(height: 40),
+            const Text(
               'MAKE MEMORIES',
               textAlign: TextAlign.center,
               style: TextStyle(
@@ -58,15 +63,19 @@ class AIPhotoBoothHomePage extends StatelessWidget {
                 color: Colors.white,
               ),
             ),
-            SizedBox(height: 20),
-            ActionButton(title: 'START PHOTO SESSION'),
-            SizedBox(height: 20),
-            Text(
+            const Text(
               'AND SEE THEM IN REALITY',
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 24,
                 color: Colors.white,
+              ),
+            ),
+            SizedBox(height: 40),
+            Center(
+              child: SizedBox(
+                width: 350,
+                child: ActionButton(title: 'START PHOTO SESSION'),
               ),
             ),
           ],
@@ -75,7 +84,6 @@ class AIPhotoBoothHomePage extends StatelessWidget {
     );
   }
 }
-
 class ActionButton extends StatelessWidget {
   final String title;
 
@@ -83,27 +91,27 @@ class ActionButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 200.0,
-      child:ElevatedButton(
-      onPressed: () {
-        // Define the action when the button is pressed
-      },
-      child: Text(
-        title,
-        style: TextStyle(
-          fontSize: 20,
-          color: Colors.black,
-        ),
+    return SizedBox(
+  width: MediaQuery.of(context).size.width * 0.3,
+  child: ElevatedButton(
+    onPressed: () {
+      // Define the action when the button is pressed
+    },
+    style: ElevatedButton.styleFrom(
+      shadowColor: Colors.transparent,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(30),
       ),
-      style: ElevatedButton.styleFrom(
-        shadowColor: Colors.transparent, // No shadow
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(30),
-          side: BorderSide(color: Colors.white), // Border color and width
-        ),
+    ),
+    child: Text(
+      title,
+      style: const TextStyle(
+        fontSize: 20,
+        color: Colors.black,
       ),
-      ),
-    );
+    ),
+  ),
+);
   }
 }
+
