@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'main.dart';
 
 void main() => runApp(AIPhotoBoothApp());
 
@@ -21,7 +22,11 @@ class AIPhotoBoothHomePage extends StatelessWidget {
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            colors: [Color.fromARGB(255, 237, 17, 17),Color.fromARGB(255, 207, 101, 101), Color.fromARGB(255, 86, 9, 100)],
+            colors: [
+              Color.fromARGB(255, 237, 17, 17),
+              Color.fromARGB(255, 207, 101, 101),
+              Color.fromARGB(255, 86, 9, 100)
+            ],
           ),
         ),
         child: Column(
@@ -41,7 +46,24 @@ class AIPhotoBoothHomePage extends StatelessWidget {
             Center(
               child: SizedBox(
                 width: 450,
-                child: ActionButton(title: 'CONNECT WITH MOBILE PHONE'),
+                child: ElevatedButton(
+                  onPressed: () {
+                    // Define the action when the button is pressed
+                  },
+                  style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                    padding: EdgeInsets.all(20), // Adjust padding as needed
+                  ),
+                  child: Text(
+                    'CONNECT WITH MOBILE PHONE',
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.black,
+                    ),
+                  ),
+                ),
               ),
             ),
             SizedBox(height: 10),
@@ -75,43 +97,34 @@ class AIPhotoBoothHomePage extends StatelessWidget {
             Center(
               child: SizedBox(
                 width: 350,
-                child: ActionButton(title: 'START PHOTO SESSION'),
+                child: ElevatedButton(
+                  onPressed: () {
+                    // Navigate to the CameraScreen when the button is pressed
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => CameraScreen()),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                    padding: EdgeInsets.all(20), // Adjust padding as needed
+                  ),
+                  child: const Text(
+                    'START PHOTO SESSION',
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.black,
+                    ),
+                  ),
+                ),
               ),
             ),
           ],
         ),
       ),
     );
-  }
-}
-class ActionButton extends StatelessWidget {
-  final String title;
-
-  ActionButton({required this.title});
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-  width: MediaQuery.of(context).size.width * 0.3,
-  child: ElevatedButton(
-    onPressed: () {
-      // Define the action when the button is pressed
-    },
-    style: ElevatedButton.styleFrom(
-      shadowColor: Colors.transparent,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(30),
-      ),
-    ),
-    child: Text(
-      title,
-      style: const TextStyle(
-        fontSize: 20,
-        color: Colors.black,
-      ),
-    ),
-  ),
-);
   }
 }
 
