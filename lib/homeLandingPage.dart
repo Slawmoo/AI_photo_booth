@@ -102,7 +102,7 @@ class AIPhotoBoothHomePage extends StatelessWidget {
                     // Navigate to the CameraScreen when the button is pressed
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => MyApp()),
+                      MaterialPageRoute(builder: (context) => CameraScreen()),
                     );
                   },
                   style: ElevatedButton.styleFrom(
