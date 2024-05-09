@@ -39,7 +39,7 @@ class _CameraScreenState extends State<CameraScreen> {
 
     _controller = CameraController(
       firstCamera,
-      ResolutionPreset.ultraHigh,
+      ResolutionPreset.veryHigh,
     );
 
     _initializeControllerFuture = _controller.initialize();
@@ -55,9 +55,6 @@ class _CameraScreenState extends State<CameraScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Camera'),
-      ),
       body: FutureBuilder<void>(
         future: _initializeControllerFuture,
         builder: (context, snapshot) {
@@ -110,9 +107,6 @@ class ImagePreviewScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Image Preview'),
-      ),
       body: Center(
         child: Image.file(File(imagePath)),
       ),
