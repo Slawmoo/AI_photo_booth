@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'main.dart';
+import 'tablet_main_app.dart';
 
-void main() => runApp(AIPhotoBoothApp());
+void main() => runApp(HomeTab());
 
-class AIPhotoBoothApp extends StatelessWidget {
+class HomeTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -42,31 +42,7 @@ class AIPhotoBoothHomePage extends StatelessWidget {
                 color: Colors.white,
               ),
             ),
-            SizedBox(height: 60),
-            Center(
-              child: SizedBox(
-                width: 450,
-                child: ElevatedButton(
-                  onPressed: () {
-                    // Define the action when the button is pressed
-                  },
-                  style: ElevatedButton.styleFrom(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30),
-                    ),
-                    padding: EdgeInsets.all(20), // Adjust padding as needed
-                  ),
-                  child: Text(
-                    'CONNECT WITH MOBILE PHONE',
-                    style: TextStyle(
-                      fontSize: 20,
-                      color: Colors.black,
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            SizedBox(height: 10),
+            SizedBox(height: 50),
             const Text(
               'PHONE CONNECTED',
               textAlign: TextAlign.center,
@@ -99,11 +75,11 @@ class AIPhotoBoothHomePage extends StatelessWidget {
                 width: 350,
                 child: ElevatedButton(
                   onPressed: () {
-                    // Navigate to the CameraScreen when the button is pressed
                     Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => CameraScreen()),
-                    );
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => MainUserScreen(),
+                        ));
                   },
                   style: ElevatedButton.styleFrom(
                     shape: RoundedRectangleBorder(

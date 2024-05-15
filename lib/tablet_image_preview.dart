@@ -1,23 +1,101 @@
-import 'package:flutter/material.dart';
+/*import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
 import 'package:path_provider/path_provider.dart';
 import 'dart:io';
 
-void main() => runApp(CameraApp());
+void main() => runApp(ImagePreview());
 
-class CameraApp extends StatelessWidget {
+class ImagePreview extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Camera App',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: CameraScreen(),
+      home: ImagePreview(),
+    );
+  }
+}
+*/
+
+import 'package:flutter/material.dart';
+import 'dart:io';
+import 'home_for_tab.dart';
+import 'tablet_main_app.dart';
+
+class ImagePreview extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Stack(
+        children: <Widget>[
+          Center(
+            child: const Text(
+              'Hello, User',
+              style: TextStyle(fontSize: 24),
+            ),
+          ),
+          Positioned(
+            bottom: 20,
+            left: 20,
+            child: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => MainUserScreen(),
+                  ),
+                );
+              },
+              child: Container(
+                width: 100,
+                height: 100,
+                decoration: const BoxDecoration(
+                  color: Colors.black26,
+                  shape: BoxShape.circle,
+                ),
+                child: const Icon(
+                  Icons.arrow_back,
+                  color: Colors.black,
+                  size: 50,
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+            bottom: 20,
+            right: 20,
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => MainUserScreen(),
+                    ),
+                  );
+                },
+              child: Container(
+                width: 100,
+                height: 100,
+                decoration: const BoxDecoration(
+                  color: Colors.black26,
+                  shape: BoxShape.circle,
+                ),
+                child: const Icon(
+                  Icons.print,
+                  color: Colors.black,
+                  size: 50,
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
 
+/*
 class CameraScreen extends StatefulWidget {
   @override
   _CameraScreenState createState() => _CameraScreenState();
@@ -39,7 +117,7 @@ class _CameraScreenState extends State<CameraScreen> {
 
     _controller = CameraController(
       firstCamera,
-      ResolutionPreset.veryHigh,
+      ResolutionPreset.max,
     );
 
     _initializeControllerFuture = _controller.initialize();
@@ -51,7 +129,7 @@ class _CameraScreenState extends State<CameraScreen> {
     _controller.dispose();
     super.dispose();
   }
-
+//TU FUNKCIONALNOSTI ZAVRŠAVAJU
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -112,4 +190,4 @@ class ImagePreviewScreen extends StatelessWidget {
       ),
     );
   }
-}
+}*/
