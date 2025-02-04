@@ -53,20 +53,26 @@ class MainUserScreen extends StatelessWidget {
   }
 }*/
 import 'package:flutter/material.dart';
-import 'dart:io';
 import 'home_for_tab.dart';
 import 'tablet_image_preview.dart';
 
+const Color buttonColors = Color.fromARGB(140, 0, 0, 0);
+const Color iconColors = Colors.white;
+
 class MainUserScreen extends StatelessWidget {
+  const MainUserScreen({super.key});
+
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
         children: <Widget>[
-          const Center(
-            child: Text(
-              'Hello, User',
-              style: TextStyle(fontSize: 24),
+          // Set the background image
+          Positioned.fill(
+            child: Image.asset(
+              'assets/PlaceHolderPozadina.png',
+              fit: BoxFit.cover,
             ),
           ),
           Positioned(
@@ -85,12 +91,12 @@ class MainUserScreen extends StatelessWidget {
                 width: 100,
                 height: 100,
                 decoration: const BoxDecoration(
-                  color: Colors.black26,
+                  color: buttonColors,
                   shape: BoxShape.circle,
                 ),
                 child: const Icon(
                   Icons.arrow_back,
-                  color: Colors.black,
+                  color: iconColors,
                   size: 50,
                 ),
               ),
@@ -111,12 +117,12 @@ class MainUserScreen extends StatelessWidget {
                       width: 70,
                       height: 70,
                       decoration: const BoxDecoration(
-                        color: Colors.black26,
+                        color: buttonColors,
                         shape: BoxShape.circle,
                       ),
                       child: const Icon(
                         Icons.timer,
-                        color: Colors.black,
+                        color: iconColors,
                         size: 35,
                       ),
                     ),
@@ -135,12 +141,12 @@ class MainUserScreen extends StatelessWidget {
                       width: 100,
                       height: 100,
                       decoration: const BoxDecoration(
-                        color: Colors.black26,
+                        color: buttonColors,
                         shape: BoxShape.circle,
                       ),
                       child: const Icon(
                         Icons.camera,
-                        color: Colors.black,
+                        color: iconColors,
                         size: 50,
                       ),
                     ),
@@ -154,12 +160,12 @@ class MainUserScreen extends StatelessWidget {
                       width: 70,
                       height: 70,
                       decoration: const BoxDecoration(
-                        color: Colors.black26,
+                        color: buttonColors,
                         shape: BoxShape.circle,
                       ),
                       child: const Icon(
                         Icons.flash_on,
-                        color: Colors.black,
+                        color: iconColors,
                         size: 35,
                       ),
                     ),
@@ -167,7 +173,8 @@ class MainUserScreen extends StatelessWidget {
                 ],
               ),
             ),
-          ),Align(
+          ),
+          Align(
             alignment: Alignment.bottomCenter,
             child: Container(
               margin: const EdgeInsets.only(bottom: 20),
@@ -182,13 +189,17 @@ class MainUserScreen extends StatelessWidget {
                     width: 90,
                     height: 90,
                     decoration: BoxDecoration(
-                      color: Colors.black26,
+                      color: buttonColors,
                       shape: BoxShape.circle,
                     ),
                     child: Center(
-                      child: Text(
-                        '${index + 1}',
-                        style: TextStyle(color: Colors.black, fontSize: 24),
+                      child: ClipOval(
+                        child: Image.asset(
+                          'assets/Filter1.png',
+                          fit: BoxFit.fill,
+                          width: 70,  // Adjust width and height as needed
+                          height: 70, // Adjust width and height as needed
+                        ),
                       ),
                     ),
                   );

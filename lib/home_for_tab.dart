@@ -42,16 +42,9 @@ class AIPhotoBoothHomePage extends StatelessWidget {
                 color: Colors.white,
               ),
             ),
+            SizedBox(height: 70),
+            
             SizedBox(height: 50),
-            const Text(
-              'PHONE CONNECTED',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 24,
-                color: Colors.white,
-              ),
-            ),
-            SizedBox(height: 40),
             const Text(
               'MAKE MEMORIES',
               textAlign: TextAlign.center,

@@ -23,16 +23,19 @@ import 'dart:io';
 import 'home_for_tab.dart';
 import 'tablet_main_app.dart';
 
+const Color buttonColors = Color.fromARGB(140, 0, 0, 0);
+const Color iconColors = Colors.white;
+
 class ImagePreview extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
         children: <Widget>[
-          Center(
-            child: const Text(
-              'Hello, User',
-              style: TextStyle(fontSize: 24),
+          Positioned.fill(
+            child: Image.asset(
+              'assets/PlaceHolderPozadina.png',
+              fit: BoxFit.cover,
             ),
           ),
           Positioned(
@@ -51,12 +54,12 @@ class ImagePreview extends StatelessWidget {
                 width: 100,
                 height: 100,
                 decoration: const BoxDecoration(
-                  color: Colors.black26,
+                  color: buttonColors,
                   shape: BoxShape.circle,
                 ),
                 child: const Icon(
                   Icons.arrow_back,
-                  color: Colors.black,
+                  color: iconColors,
                   size: 50,
                 ),
               ),
@@ -78,12 +81,12 @@ class ImagePreview extends StatelessWidget {
                 width: 100,
                 height: 100,
                 decoration: const BoxDecoration(
-                  color: Colors.black26,
+                  color: buttonColors,
                   shape: BoxShape.circle,
                 ),
                 child: const Icon(
                   Icons.print,
-                  color: Colors.black,
+                  color: iconColors,
                   size: 50,
                 ),
               ),
